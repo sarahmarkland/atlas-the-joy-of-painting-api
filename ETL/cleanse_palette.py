@@ -1,14 +1,14 @@
 import psycopg2
 import re
-from datetime import datetime
+# from datetime import datetime
 
 # Connect to postgres DB
-conn = psycopg2.connect("dbname=test user=postgres password=secret")
+conn = psycopg2.connect("dbname=jop_db user=postgres password=pa$$ord!e host=localhost port=4321")
 
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
-# Open the file
+# Open the data file
 with open('The Joy Of Painting - Episode Dates.txt', 'r') as file:
     for line in file:
         # Use regex to extract the title and date
