@@ -3,6 +3,7 @@ import csv
 
 # store titles in a list
 titles = []
+seasons = []
 
 # open the Colors_Used.csv file
 with open('datasets/Colors_Used.csv', 'r', encoding='utf-8') as csvfile:
@@ -14,11 +15,14 @@ with open('datasets/Colors_Used.csv', 'r', encoding='utf-8') as csvfile:
     for row in csvreader:
         title = row[3]
         titles.append(title)
+        season = row[4]
+        seasons.append(season)
 
-# rows = zip(titles...)
+rows = zip(titles, seasons)
+
 outputcsv = 'clean_data/squeaky.csv'
 with open(outputcsv, 'w', encoding='utf-8', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['title'])
     for title in titles:
-        writer.writerow([title])
+        writer.writerow([title, season])
